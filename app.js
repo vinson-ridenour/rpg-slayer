@@ -33,7 +33,7 @@ new Vue({
       // this.checkWin() // no need to return after this since nothing else is happening afterwards
     },
     specialAttack: function () {
-      this.monsterHealth = this.calculateDamage(10, 20)
+      this.monsterHealth -= this.calculateDamage(10, 20)
 
       if (this.checkWin()) {
         return
@@ -43,8 +43,17 @@ new Vue({
       // this.playerHealth -= this.calculateDamage(5, 12)
       // this.checkWin()
     },
-    heal: function () {},
-    giveUp: function () {},
+    heal: function () {
+      if (this.playerHealth <= 90) {
+        this.playerHealth += 10
+      } else {
+        this.playerHealth = 100
+      }
+      this.monsterAttacks()
+    },
+    giveUp: function () {
+      this.gameIsRunning = false
+    },
     monsterAttacks: function () {
       this.playerHealth -= this.calculateDamage(5, 12)
       this.checkWin()
