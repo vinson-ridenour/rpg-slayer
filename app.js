@@ -102,3 +102,8 @@ new Vue({
     },
   },
 })
+
+// notes for future additions:
+// don't show old log after hitting Give Up
+// show heals in green text
+// randomize a critical hit fxn
